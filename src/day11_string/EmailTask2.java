@@ -6,16 +6,27 @@ public class EmailTask2 {
 
     public static void main(String[] args) {
 
+        // Reads email from console using Scanner
         Scanner scan = new Scanner(System.in);
-
         System.out.println("Enter your email:");
         String email = scan.next();
-
+        email = email.toLowerCase(); // makes the whole email lowercase
         scan.close();
 
+        // breaks the email into the different parts
         String firstName = email.substring(0, email.indexOf("_"));
         String lastName = email.substring(email.indexOf("_") + 1, email.indexOf("@"));
         String domain = email.substring(email.indexOf("@") + 1, email.lastIndexOf("."));
+
+        // Makes the first and last name capitalized
+        String firstUpper = firstName.substring(0,1);
+        firstUpper = firstUpper.toUpperCase();
+        String lastUpper = lastName.substring(0,1);
+        lastUpper = lastUpper.toUpperCase();
+
+        firstName = firstUpper + firstName.substring(1);
+        lastName = lastUpper + lastName.substring(1);
+
 
         System.out.println("First name: " + firstName);
         System.out.println("Last name: " + lastName);
