@@ -7,24 +7,36 @@ public class RoomReservation {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        int total = 0;
+        String reserve;
+        String options = "\t\tKing -> $120\n\t\tQueen -> $100\n\t\tSingle -> $80";
 
+        do {
+            System.out.println("Welcome, would you like to reserve a room. Please respond with yes or no");
+            reserve = input.nextLine();
 
-        System.out.println("Which room would you like to select?");
-        System.out.println("\t\tKing Bed == $120");
-        System.out.println("\t\tQueen Bed == $100");
-        System.out.println("\t\tSingle Bed == $80");
+        } while (!reserve.equalsIgnoreCase("yes") && !reserve.equalsIgnoreCase("no"));
 
-        String word = input.nextLine().toLowerCase();
+        if (reserve.equalsIgnoreCase("yes")) {
 
-        while (!(word.equals("king bed") || word.equals("queen bed") || word.equals("single bed"))) {
-            System.out.println("Invalid Entry, Please Re-Enter");
-            word = input.nextLine().toLowerCase();
-        } // to make sure user selected either the king bed, or queen bed or single bed
+            String room;
 
-        total += (word.equals("king bed")) ? 120 : (word.equals("queen bed")) ? 100 : 80;
+            do {
+                System.out.println("Sure, which bed size would you like to select. Pick from these:\n" + options);
+                room = input.nextLine();
 
-        System.out.println("Your total price is: $" + total);
+            } while (!room.equalsIgnoreCase("king") && !room.equalsIgnoreCase("queen") && !room.equalsIgnoreCase("single"));
+
+            if (room.equalsIgnoreCase("king")) {
+                System.out.println("Great we have given a room with a King bed, that will be $120 a night");
+            } else if (room.equalsIgnoreCase("queen")) {
+                System.out.println("A queen bed! Great choice, your total will be $100");
+            } else {
+                System.out.println("Our single beds are the best around. It will cost you only $80");
+            }
+
+        } else {
+            System.out.println("Have a nice day");
+        }
 
         input.close();
 
