@@ -8,16 +8,33 @@ public class Circle {
         setRadius(radius);
     }
 
+    public double calcArea() {
+        return radius * radius * Math.PI;
+    }
+
+    public double calcPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
     public double getRadius() {
         return radius;
     }
 
     public void setRadius(double radius) {
-        if(radius <= 0 ){
-            System.err.println("Invalid radius: "+radius);
+        if (radius <= 0) {
+            System.err.println("Invalid radius: " + radius);
             System.exit(1);
         }
         this.radius = radius;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                ", area=" + calcArea() +
+                ", perimeter=" + calcPerimeter() +
+                '}';
     }
 }
 /*
