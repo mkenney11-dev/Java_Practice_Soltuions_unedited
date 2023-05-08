@@ -82,7 +82,7 @@ public class EmployeeTask {
 
         Tester max = testers.get(0);
         for (Tester each : testers) {
-            if (each.getSalary() > each.getSalary()) {
+            if (each.getSalary() > max.getSalary()) {
                 max = each;
             }
         }
@@ -95,7 +95,7 @@ public class EmployeeTask {
 
         Developer devMax = developers.get(0);
         for (Developer each : developers) {
-            if (each.getSalary() > each.getSalary()) {
+            if (each.getSalary() > devMax.getSalary()) {
                 devMax = each;
             }
         }
